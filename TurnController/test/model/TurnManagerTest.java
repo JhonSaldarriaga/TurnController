@@ -52,7 +52,7 @@ class TurnManagerTest {
 		setup1();
 		boolean add = tm.addUser("123", "null", "null", "null", "null", "null");
 		assertEquals(true, add, "User has not been added");
-		//AÒadiendo el mismo usuario
+		//A√±adiendo el mismo usuario
 		add = tm.addUser("123", "null", "null", "null", "null", "null");
 		assertEquals(false, add, "User has been added again");
 		//Con usuarios en el programa
@@ -64,7 +64,6 @@ class TurnManagerTest {
 	@Test
 	public void assignTurnTest() {
 		//Cuando se genera el primer turno a un usuario existente
-		setup1();
 		setup5();
 		try {
 			Turn at = tm.assignTurn("456");
@@ -100,7 +99,6 @@ class TurnManagerTest {
 		}
 		
 		//Generar primer turno (A00)
-		setup1();
 		setup5();
 		try {
 			tm.assignTurn("456");
@@ -134,18 +132,16 @@ class TurnManagerTest {
 	@Test
 	public void searchPersonTest() {
 		//Si ya existe el usuario
-		setup1();
 		setup5();
 		int position = tm.searchPerson("456");
 		assertEquals(0,position,"User not found");
 		
-		//Si no existe el usuario al buscar y el programa est· vacÌo
+		//Si no existe el usuario al buscar y el programa est√° vac√≠o
 		setup1();
 		position = tm.searchPerson("456");
 		assertEquals(-1,position,"Found an inexistent user");
 		
-		//Si no existe el usuario y el programa no est· vacÌo
-		setup1();
+		//Si no existe el usuario y el programa no est√° vac√≠o
 		setup5();
 		position = tm.searchPerson("123");
 		assertEquals(-1,position,"Found an inexistent user");
@@ -154,18 +150,16 @@ class TurnManagerTest {
 	@Test
 	public void searchTurnTest() {
 		//Si ya existe el turno
-		setup1();
 		setup2();
 		int position = tm.searchTurn("123");
 		assertEquals(0,position,"Turn not found");
 		
-		//Si no existe el turno al buscar y el programa est· vacÌo
+		//Si no existe el turno al buscar y el programa est√° vac√≠o
 		setup1();
 		position = tm.searchTurn("123");
 		assertEquals(-1,position,"Found an inexistent turn");
 		
-		//Si no existe el turno y el programa no est· vacÌo
-		setup1();
+		//Si no existe el turno y el programa no est√° vac√≠o
 		setup2();
 		position = tm.searchTurn("456");
 		assertEquals(-1,position,"Found an inexistent turn");
@@ -186,7 +180,7 @@ class TurnManagerTest {
 	
 	@Test
 	public void showUsersAddedTest() {
-		//Que muestre con un formato especifico los usuarios que tiene aÒadidos 
+		//Que muestre con un formato especifico los usuarios que tiene a√±adidos 
 		setup5();
 		String added = tm.showUsersAdded();
 		assertEquals("Name: Valentina/ ID: 456\n", added, "System dont show added users");
